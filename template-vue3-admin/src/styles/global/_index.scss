@@ -1,0 +1,24 @@
+// 合并多个全局样式
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+    $colors: (
+        'primary': (
+            'base': #0F57B3,
+        ),
+    ),
+    $table: (
+        'header-bg-color': #F5F5F5,
+    ),
+    $menu: (
+        'item-height': 48px,
+        'icon-width': 20px,
+        'horizontal-sub-item-height': 42px,
+    ),
+    $button: (
+        'font-weight': 400,
+    ),
+    $link: (
+        'font-weight': 400,
+    )
+);
+@forward './_variables.scss';
+@forward './_mixins.scss';

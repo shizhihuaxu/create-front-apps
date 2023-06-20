@@ -1,0 +1,201 @@
+// -------------------  transition  ------------------------------
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+    transition: all 0.2s;
+}
+
+.fade-transform-enter-from {
+    transform: translateX(-30px);
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.fade-transform-leave-to {
+    transform: translateX(30px);
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.breadcrumb-enter-active {
+    transition: all 0.2s;
+}
+
+.breadcrumb-enter-from,
+.breadcrumb-leave-active {
+    transform: translateX(10px);
+    opacity: 0;
+}
+
+// -------------------  内外边距  ------------------------------
+.mx-auto {
+    margin: 0 auto;
+}
+
+@for $i from 0 through 20 {
+    .mt-#{$i} {
+        margin-top: $i * 10px !important;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: $i * 10px !important;
+    }
+
+    .mr-#{$i} {
+        margin-right: $i * 10px !important;
+    }
+
+    .ml-#{$i} {
+        margin-left: $i * 10px !important;
+    }
+
+    .mx-#{$i} {
+        margin: 0 $i * 10px !important;
+    }
+
+    .my-#{$i} {
+        margin: $i * 10px 0 !important;
+    }
+
+    .pt-#{$i} {
+        padding-top: $i * 10px !important;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: $i * 10px !important;
+    }
+
+    .pl-#{$i} {
+        padding-left: $i * 10px !important;
+    }
+
+    .pr-#{$i} {
+        padding-right: $i * 10px !important;
+    }
+
+    .px-#{$i} {
+        padding: 0 $i * 10px !important;
+    }
+
+    .py-#{$i} {
+        padding: $i * 10px 0 !important;
+    }
+}
+
+// 常用间距 例如：mr-8px
+$common-margin-list: (2, 4, 6, 8, 12, 16, 24, 32);
+
+@each $item in $common-margin-list {
+    .mt-#{$item}px {
+        margin-top: #{$item}px !important;
+    }
+
+    .mr-#{$item}px {
+        margin-right: #{$item}px !important;
+    }
+
+    .mb-#{$item}px {
+        margin-bottom: #{$item}px !important;
+    }
+
+    .ml-#{$item}px {
+        margin-left: #{$item}px !important;
+    }
+
+    .mx-#{$item}px {
+        margin: 0 #{$item}px !important;
+    }
+}
+
+// -------------------  flex 对齐方式  ------------------------------
+.flex-justify-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+// -------------------  文本  ----------------------------
+// 对齐方式
+.txt-align-r {
+    text-align: right;
+}
+
+.txt-align-l {
+    text-align: left;
+}
+
+.txt-align-c {
+    text-align: center;
+}
+
+// 文本换行
+.wrap-breakword {
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.wrap-all {
+    white-space: normal;
+    word-break: break-all;
+}
+
+.no-wrap {
+    white-space: nowrap;
+    word-break: keep-all;
+}
+
+// ------------------- 省略号：1-5 行  ------------------------------
+@for $i from 0 through 5 {
+    .ellipsis-#{$i} {
+        @include global.ellipsis($i);
+    }
+}
+
+// ------------------- 页面布局  ------------------------------
+.page {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 16px;
+    overflow-x: hidden;
+
+    // 全部背景是白色的页面
+    .page-card {
+        box-sizing: border-box;
+        padding: 20px;
+        background-color: var(--el-bg-color-overlay);
+        border-radius: 4px;
+    }
+
+    // 有时需要使用 card 组件的功能，作为页面容器
+    .el-card.page-card {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+
+        .el-card__header {
+            padding: 12px var(--el-card-padding);
+        }
+    }
+}
+
+// 页面中横向的 table 筛选 tabs
+.page-card > .el-tabs.el-tabs--top {
+    margin-top: -10px; // NOTE 处理 page-card 和 tabs 距离过大问题
+
+    .el-tabs__item.is-top {
+        font-size: 15px;
+    }
+}
+
+// 列表卡片，使 table 高度自适应
+.table-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+}

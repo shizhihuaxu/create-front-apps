@@ -1,0 +1,6 @@
+node_modules
+dist
+index.html
+!src
+/docs
+/components.d.ts

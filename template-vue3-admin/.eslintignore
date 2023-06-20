@@ -1,0 +1,13 @@
+node_modules
+dist
+html
+.vscode
+.husky
+*.sh
+*.md
+*.woff
+*.ttf
+/components.d.ts
+/public
+/docs
+/index.html

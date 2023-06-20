@@ -1,0 +1,72 @@
+.el-container {
+    height: 100%;
+
+    // 侧边菜单
+    .el-aside {
+        width: auto;
+        overflow: inherit;
+        background-color: global.$menu-bg-color;
+        border-right: 1px solid global.$menu-bg-color;
+
+        .menu-wrap {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+
+            .el-scrollbar {
+                height: calc(100% - 55px);
+            }
+
+            .el-menu {
+                overflow-x: hidden;
+                border-right: none;
+            }
+
+            :deep(.el-menu-item) {
+                &.is-active,
+                &.is-active:hover {
+                    background-color: var(--el-color-primary);
+                }
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                height: 55px;
+
+                // logo
+                img {
+                    width: 28px;
+                    object-fit: contain;
+                }
+
+                // 产品名
+                span {
+                    margin-left: 12px;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 18px;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    // 顶部导航
+    .el-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        height: 48px;
+        padding: 0 16px;
+        background-color: var(--el-bg-color-overlay);
+    }
+}

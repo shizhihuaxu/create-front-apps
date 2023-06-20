@@ -1,0 +1,89 @@
+// dialog
+.el-dialog {
+    .el-dialog__title {
+        font-weight: 500;
+        font-size: var(--el-font-size-medium);
+    }
+
+    .el-dialog__header {
+        margin: 0;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--el-border-color-lighter);
+    }
+
+    .el-dialog__footer {
+        padding-bottom: 10px;
+        border-top: 1px solid var(--el-border-color-lighter);
+    }
+}
+
+// drawer
+.el-drawer {
+    .el-drawer__title {
+        color: var(--el-text-color-primary);
+        font-weight: 500;
+    }
+
+    .el-drawer__header {
+        margin-bottom: 0;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--el-border-color-lighter);
+    }
+
+    .el-drawer__footer {
+        padding-bottom: 10px;
+        border-top: 1px solid var(--el-border-color-lighter);
+    }
+}
+
+// icon
+.el-icon {
+    cursor: pointer;
+}
+
+// dropdown
+.el-table__cell .el-dropdown {
+    vertical-align: middle !important;
+}
+
+// select
+.el-select-v2 {
+    width: 100%;
+}
+
+// 文本
+.el-text--primary {
+    cursor: pointer;
+}
+
+// tabs 的分隔线
+.el-tabs .el-tabs__nav-wrap::after {
+    height: 1px;
+}
+
+// form
+.el-form {
+    .el-form-item__label {
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    // 宽度占满
+    .el-form-item__content > .el-date-editor {
+        width: 100% !important;
+    }
+
+    // 宽度占满
+    .el-input__wrapper {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+// space
+.el-space {
+    // 最后一项不需要向右的间距
+    .el-space__item:last-child {
+        margin-right: 0 !important;
+    }
+}

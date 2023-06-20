@@ -1,0 +1,48 @@
+{
+  "name": "create-front-apps",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "shizhihuaxu <shizhihuaxu@gmail.com>",
+  "bin": {
+    "create-front-apps": "index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "keywords": [
+    "frontend",
+    "vue3",
+    "typescript",
+    "admin"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "yarn run build"
+  },
+  "repository": "git@github.com:shizhihuaxu/create-front-apps.git",
+  "homepage": "https://github.com/shizhihuaxu/create-front-apps#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/minimist": "^1.2.2",
+    "@types/prompts": "^2.4.4",
+    "cross-spawn": "^7.0.3",
+    "cz-conventional-changelog": "3.3.0",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "unbuild": "^1.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
