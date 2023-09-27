@@ -26,6 +26,8 @@
 
 4. 所有颜色变量应优先使用 `element-plus` 提供的变量，点击页面中 html 标签即可看到所有全局可用变量，避免自己定义变量与其他组件不协调的问题，当 `element-plus` 提供的变量在全局范围内与预期值不符时，需在 `styles/global/_index.scss`  中重置，参照[此链接](https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/common/var.scss)的重置方法；
 
+5. 由于 element 图标过少，其他的图标可以在[阿里图标库](https://www.iconfont.cn/) 查找，添加至项目，统一采用 symbol 方式引入使用，参见 `IconSymbol` 组件；更新 iconfont 文件，项目目录下执行 `node download-icon.js 生成的url ` ，url 是一个 `// at.alicdn.com/...js`的链接，每次图标库有变动需要重新生成链接；
+
    
 
 ### 3 TS
@@ -43,6 +45,8 @@
 6. 全局的类型放在  `root/typings` 文件夹下，按功能隔离，可实现全局使用，避免每个文件单独导入麻烦；
 
 7. 其余规则参见仓库中 `Eslint` 配置，vscode 中安装  `Eslint` 插件配合项目中 `.vscode` 配置文件即可实现自动修复；
+
+8. 优先使用模版字符串拼接字符串，避免使用加号拼接；
 
    
 

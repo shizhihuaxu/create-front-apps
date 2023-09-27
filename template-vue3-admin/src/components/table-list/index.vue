@@ -80,7 +80,7 @@ interface IProps {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-    rowKey: 'pk',
+    rowKey: 'id',
     loading: false,
 })
 

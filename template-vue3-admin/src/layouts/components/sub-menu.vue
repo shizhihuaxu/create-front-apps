@@ -7,7 +7,12 @@
             :index='subItem.path'>
             <template #title>
                 <el-icon>
-                    <component :is='subItem.meta.icon'></component>
+                    <component
+                        v-if='subItem.meta?.icon'
+                        :is='subItem.meta.icon' />
+                    <icon-symbol
+                        v-if='subItem.meta?.iconSymbol'
+                        :icon='subItem.meta.iconSymbol' />
                 </el-icon>
                 <span>{{ subItem.meta.title }}</span>
             </template>
@@ -18,7 +23,12 @@
             :index='subItem.path'
             @click='handleClickMenu(subItem)'>
             <el-icon>
-                <component :is='subItem.meta.icon'></component>
+                <component
+                    v-if='subItem.meta?.icon'
+                    :is='subItem.meta.icon' />
+                <icon-symbol
+                    v-if='subItem.meta?.iconSymbol'
+                    :icon='subItem.meta.iconSymbol' />
             </el-icon>
             <template #title>
                 <span>{{ subItem.meta.title }}</span>

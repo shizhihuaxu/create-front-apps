@@ -22,5 +22,9 @@ module.exports = {
                 ignorePseudoClasses: [ 'deep' ],
             },
         ],
+        'function-no-unknown': [
+            true,
+            { ignoreFunctions: [ 'v-bind' ] },
+        ],
     },
 }

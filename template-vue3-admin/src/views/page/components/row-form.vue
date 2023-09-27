@@ -33,7 +33,7 @@ import { getPageDetail, addPage, updatePage } from '@/services/page'
 interface IProps {
     visible: boolean
     type: OpsRowEnum
-    pk?: Key
+    id?: Key
 }
 
 interface IFormState {
@@ -62,7 +62,7 @@ const formRules = reactive<Form.FormRules>({
 const getDetail = () => {
     loading.value = true
 
-    getPageDetail(props.pk)
+    getPageDetail(props.id)
         .then((res) => {
             Object.keys(formState).forEach(key => {
                 if (res[key] !== undefined) {
@@ -87,7 +87,7 @@ const onOk = () => {
         if(valid) {
             const params = { ...formState }
             const apiMethod = isUpdate.value
-                ? updatePage(props.pk, params)
+                ? updatePage(props.id, params)
                 : addPage(params)
 
             loading.value = true

@@ -45,6 +45,7 @@ export const useTableList = <T extends ReponseData>(
         rowKey?: string // 列表多选获取唯一表示字段名
         needRouteParams?: boolean // 是否需要将查询参数携带进路由
         pagination?: boolean
+        requestImmediate?: boolean // 默认true，是否在 mounted 时立即获取数据，在dialog/drawer的 list有时需要在显示后才获取查询参数才能数据
         columns?: Table.ColumnProps[] | Ref<Table.ColumnProps[]>
         defaultQueryParams?: RequestParams
         convertEmptyOptions?: IConvertEmptyConfig
@@ -70,11 +71,13 @@ export const useTableList = <T extends ReponseData>(
     const router = useRouter()
     const route = useRoute()
     const updateRouteQuery = async () => {
-        const failure = await router.replace({
-            query: {
-                ...state.queryParams,
-            },
+        const path = route.path
+        const query = queryString.stringify(state.queryParams, {
+            skipNull: true, // 忽略key的值为 null、undefined的处理
+            arrayFormat: 'bracket', // 将数组查询参数处理为 arr[]=1&arr[]=2的形式
         })
+        // NOTE 保留数组参数形式, query: {} 方式会将数组参数处理为 arr=1&arr=1的形式，单个数组解析时会被解析为字符串
+        const failure = await router.replace(`${path}?${query}`)
 
         const msg = failure ? '导航失败' : '导航成功'
         return msg
@@ -93,7 +96,7 @@ export const useTableList = <T extends ReponseData>(
 
     // 选择事件
     const onSelectionChange = (rowArr: Key[]) => {
-        const rowKey =  options?.rowKey || 'pk'
+        const rowKey =  options?.rowKey || 'id'
 
         Object.assign(selection, {
             hasSelected: rowArr.length !== 0,
@@ -225,13 +228,12 @@ export const useTableList = <T extends ReponseData>(
     onMounted(() => {
         // 便于 query 中的参数覆盖默认参数
         if (options?.needRouteParams !== false) {
-            // 使用 route 的查询参数而不是window.location
-            const query = queryString.stringify(route.query, { skipNull: true })
             const {
                 page, size, ...params
-            } = queryString.parse(query, {
+            } = queryString.parse(location.search, {
                 parseNumbers: true, // 解析数字类型的值
                 parseBooleans: true, // 解析布尔类型的值
+                arrayFormat: 'bracket', // 解析arr[]=1&arr[]=2形式的数组
             })
 
             page ? pagination.current = Number(page) : ''
@@ -248,7 +250,10 @@ export const useTableList = <T extends ReponseData>(
         }
 
         setDefaultSort()
-        fetchList()
+
+        if(options?.requestImmediate !== false) {
+            fetchList()
+        }
     })
 
     return {

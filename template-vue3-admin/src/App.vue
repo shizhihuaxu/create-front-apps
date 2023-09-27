@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang='ts'>
-import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 
@@ -20,6 +20,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: var(--el-font-family);
 }
 
 #app {
@@ -31,5 +32,14 @@ a {
     color: var(--el-color-primary);
     text-decoration: none;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: var(--el-color-primary-light-3);
+    }
+
+    &:active {
+        color: var(--el-color-primary-dark-2);
+    }
 }
 </style>

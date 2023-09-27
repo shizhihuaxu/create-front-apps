@@ -17,6 +17,7 @@ export const useUserStore = defineStore('user', {
         routeName: '' as string,
         // 菜单权限列表
         authMenuList: [] as Menu.MenuOptions[],
+        authList: [] as string[],
     }),
     getters: {
         // 左侧菜单栏渲染，需要去除 isHide == true

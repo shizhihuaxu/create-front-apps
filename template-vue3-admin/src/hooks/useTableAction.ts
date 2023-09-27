@@ -7,18 +7,18 @@ export const useTableAction = () => {
     const opsRow: {
         visible: boolean
         type: OpsRowEnum
-        pk?: Key
+        id?: Key
         [key: string]: any
     } = reactive({
         visible: false,
         type: OpsRowEnum.ADD,
     })
 
-    const handleOpsRow = (type: OpsRowEnum, item: { pk?: Key, [key: string]: any } = {}) => {
+    const handleOpsRow = (type: OpsRowEnum, item: { id?: Key, [key: string]: any } = {}) => {
         Object.assign(opsRow, {
             visible: true,
             type,
-            pk: item?.pk,
+            id: item?.id,
             ...item,
         })
     }

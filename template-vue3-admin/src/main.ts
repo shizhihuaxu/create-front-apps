@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import pinia from './stores'
 import router from './routers'
+import directives from './directives'
 import setupIcons from './components/icon'
 import App from './App.vue'
 import '@/assets/fonts/font.css'
@@ -14,4 +15,5 @@ setupIcons(app)
 app
     .use(pinia)
     .use(router)
+    .use(directives)
     .mount('#app')

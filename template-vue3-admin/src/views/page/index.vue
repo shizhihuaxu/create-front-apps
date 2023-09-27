@@ -53,7 +53,7 @@
         <!-- 添加、编辑 -->
         <row-form
             v-model:visible='opsRow.visible'
-            :pk='opsRow.pk'
+            :id='opsRow.id'
             :type='opsRow.type'
             @ok='onReload()' />
     </div>
@@ -98,8 +98,8 @@ const {
 
 // 删除
 const handleDeleteConfirm = (_type: OpsNumEnum, item?: any) => {
-    const { pk } = item
-    removePage(pk).then(() => {
+    const { id } = item
+    removePage(id).then(() => {
         ElMessage.success('操作成功')
         onReload()
     })

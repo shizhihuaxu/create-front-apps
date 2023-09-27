@@ -1,7 +1,7 @@
 import request from '@/services'
 
 interface IRes {
-    pk: Key
+    id: Key
     name: string
 }
 
@@ -26,7 +26,7 @@ export const useAsyncOptions = (url: string) => {
                     const data = res.map(item => {
                         return {
                             label: item.name,
-                            value: item.pk,
+                            value: item.id,
                         }
                     })
 

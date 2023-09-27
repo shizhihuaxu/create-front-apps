@@ -9,10 +9,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BaseChart: typeof import('./src/components/base-chart/index.vue')['default']
     BaseCopy: typeof import('./src/components/base-copy/index.vue')['default']
     BaseDialog: typeof import('./src/components/base-dialog/index.vue')['default']
     BaseDrawer: typeof import('./src/components/base-drawer/index.vue')['default']
     BaseUpload: typeof import('./src/components/base-upload/index.vue')['default']
+    CodeEditor: typeof import('./src/components/code-editor/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -43,6 +45,8 @@ declare module '@vue/runtime-core' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     FooterToolbar: typeof import('./src/components/footer-toolbar/index.vue')['default']
+    IconSymbol: typeof import('./src/components/icon-symbol/index.vue')['default']
+    MdEditor: typeof import('./src/components/md-editor/index.vue')['default']
     RelativeTime: typeof import('./src/components/relative-time/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
