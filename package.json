@@ -1,9 +1,10 @@
 {
-  "name": "create-front-apps",
-  "version": "1.0.0",
+  "name": "@szhxa/create-front-apps",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "author": "shizhihuaxu <shizhihuaxu@gmail.com>",
+  "main": "index.js",
   "bin": {
     "create-front-apps": "index.js"
   },
