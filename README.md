@@ -12,16 +12,16 @@
 
 ```bash
 # npm 6.x
-npm create front-apps@latest app-name --template [vue3-ts][vue3-admin]
+npm create @szhxa/front-apps@latest app-name --template [vue3-ts][vue3-admin]
 
 # npm 7+
-npm create front-apps@latest app-name -- --template [vue3-ts][vue3-admin]
+npm create @szhxa/front-apps@latest app-name -- --template [vue3-ts][vue3-admin]
 ```
 
 使用 yarn：
 
 ```bash
-$ yarn create front-apps app-name --template [vue3-ts][vue3-admin]
+$ yarn create @szhxa/front-apps app-name --template [vue3-ts][vue3-admin]
 ```
 
 

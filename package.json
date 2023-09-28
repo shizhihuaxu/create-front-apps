@@ -4,7 +4,6 @@
   "type": "module",
   "license": "MIT",
   "author": "shizhihuaxu <shizhihuaxu@gmail.com>",
-  "main": "index.js",
   "bin": {
     "create-front-apps": "index.js"
   },
