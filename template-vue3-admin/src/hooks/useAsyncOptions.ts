@@ -14,15 +14,14 @@ export enum OptionsUrlEnum {
 export const useAsyncOptions = (url: string) => {
     const loading = ref<boolean>(false)
     const options = ref<Form.SelectOption[]>([])
-    const req: Promise<IRes[]> = request.get(url)
 
     // 请求数据
     const getOptions = async () => {
         loading.value = true
 
         return new Promise((resolve, reject) => {
-            req
-                .then((res) => {
+            request.get(url)
+                .then((res: IRes[]) => {
                     const data = res.map(item => {
                         return {
                             label: item.name,
